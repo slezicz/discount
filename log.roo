@@ -1,0 +1,63 @@
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-04-01 18:32:19
+hint
+project --topLevelPackage cz.slezacek.etnetera.discount
+hint
+jpa setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT 
+hint
+entity jpa --class cz.slezacek.etnetera.discount.model.Phonenumber
+field string --fieldName name --notNull 
+// [failed] field set --fieldName codes --type cz.slezacek.etnetera.discount.model.Code
+entity jpa --class ~.model.Event
+field string --fieldName name --notNull 
+entity jpa --class ~.model.Code
+field string --fieldName codeValue --notNull 
+field number --fieldName length --type int 
+field boolean --fieldName used
+field reference --fieldName phonenumber --type ~.model.Phonenumber
+field reference --fieldName event --type ~.model.Event 
+focus --class ~.model.Event
+perform assembly
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-04-01 18:47:55
+hint
+perform package
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-04-01 19:28:23
+perform package
+perform package
+entity jpa --class ~.model.Code --testAutomatically 
+field string --fieldName codeValue --notNull 
+field number --fieldName codeLength --type int --notNull 
+field boolean --fieldName used --notNull 
+field reference --fieldName event --type ~.model.Event
+field reference --fieldName phonenumber --type ~.model.Phonenumber 
+entity jpa --class ~.model.Event --testAutomatically 
+field string --fieldName name
+field set --fieldName codes --type ~.model.Code 
+entity jpa --class ~.model.Phonenumber --testAutomatically 
+field string phonenumber --notNull 
+field set --fieldName codes --type ~.model.Code
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-04-02 17:44:31
+help service 
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-04-02 18:09:35
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-04-02 20:04:30
+help finder
+finder list --class ~.model.Code
+help finder add 
+finder add --class ~.model.Code --finderName findCodeByEventAndPhonenumberNotNull
+finder add --class ~.model.Code --finderName findCodeByEvenAndPhonenumberNotNull
+finder add --class ~.model.Code --finderName findCodeByEvenAndPhonenumber
+finder add --class ~.model.Code --finderName findCodesByEvenAndPhonenumberNotNull
+finder add --class ~.model.Code --finderName findCodesByEvent
+finder add --class ~.model.Code --finderName findCodesByEventAndPhonenumberNotNull
+finder add --class ~.model.Code --finderName findCodesByEventAndPhonenumberNotNull
+finder add --class ~.model.Code --finderName findCodesByEventAndPhonenumber
+finder add --class ~.model.Code --finderName findCodesByEventAndPhonenumberIsNotNull
+finder add --class ~.model.Code --finderName findCodesByEventAndPhonenumberIsNull
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-04-02 20:23:31
+service type --entity ~.model.Code --interface ~.service.CodeService2
+service type --entity ~.model.Code --interface ~.service.CodeService
+service all --interfacePackage cz.slezacek.etnetera.discount.service 
+finder list --class ~.model.Code
+finder add --class ~.model.Code --finderName findCodesByCodeValueEquals
+finder add --class ~.model.Code --finderName findCodesByEventAndCodeValueEquals
+perform package
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-04-03 10:52:27
